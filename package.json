@@ -2,15 +2,19 @@
   "name": "ultimate-guide-auth-next-firebase",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "firebase:emulators:start": "firebase emulators:start"
   },
   "dependencies": {
+    "firebase": "^9.6.3",
     "next": "12.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "reactfire": "^4.2.1",
+    "tailwindcss": "^3.0.15"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
@@ -18,5 +22,8 @@
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.8",
     "typescript": "4.5.4"
+  },
+  "prettier": {
+    "tabWidth": 2
   }
 }

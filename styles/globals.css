@@ -1,9 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,4 +15,28 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.Button {
+  @apply rounded-lg px-2 py-2 text-white
+    font-bold transition-colors duration-300
+    flex items-center justify-center
+    focus:outline-2 focus:outline bg-blue-500 hover:bg-blue-600 active:bg-blue-700;
+}
+
+.TextField {
+  transition: all 0.25s;
+
+  @apply w-full border-gray-200 border
+     transition-colors duration-300
+        text-sm py-2.5 px-4 rounded-lg font-medium
+        bg-white hover:bg-gray-50 focus:outline-2 focus:outline focus:outline-blue-500  focus:border-transparent hover:border-gray-300;
+}
+
+.Hero {
+  @apply text-4xl font-black;
+}
+
+.AuthContainer {
+  @apply flex flex-col space-y-4 items-center justify-center mx-auto h-screen w-11/12 lg:w-4/12;
 }
