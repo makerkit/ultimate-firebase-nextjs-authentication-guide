@@ -13,5 +13,4 @@ yarn dev
 ```
 
 Please check out the [article where we build the codebase in this repository 
-step-by-step](https://makerkit.dev/blog/tutorials/ultimate-guide-authentication
--firebase-nextjs)
+step-by-step](https://makerkit.dev/blog/tutorials/ultimate-guide-authentication-firebase-nextjs)
