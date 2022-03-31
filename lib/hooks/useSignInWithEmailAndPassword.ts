@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useAuth } from "reactfire";
 import { FirebaseError } from "firebase/app";
 import { UserCredential, signInWithEmailAndPassword } from "firebase/auth";
@@ -12,7 +13,7 @@ export function useSignInWithEmailAndPassword() {
     FirebaseError
   >();
 
-  async function signIn(email: string, password: string) {
+  const signIn = useCallback(async (email: string, password: string) => {
     setLoading(true);
 
     try {
@@ -26,7 +27,7 @@ export function useSignInWithEmailAndPassword() {
     } catch (error) {
       setError(error as FirebaseError);
     }
-  }
+  }, [auth, setData, setError, setLoading]);
 
   return [signIn, state] as [typeof signIn, typeof state];
 }

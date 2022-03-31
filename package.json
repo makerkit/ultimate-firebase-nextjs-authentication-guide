@@ -9,16 +9,16 @@
     "firebase:emulators:start": "firebase emulators:start"
   },
   "dependencies": {
-    "firebase": "^9.6.3",
-    "next": "12.0.8",
+    "firebase": "^9.6.10",
+    "next": "12.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "reactfire": "^4.2.1",
-    "tailwindcss": "^3.0.15"
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
-    "@types/node": "17.0.8",
-    "@types/react": "17.0.38",
+    "@types/node": "17.0.23",
+    "@types/react": "17.0.43",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.8",
     "typescript": "4.5.4"

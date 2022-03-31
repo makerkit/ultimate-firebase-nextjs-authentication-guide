@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 
 import { useRequestState } from "./useRequestState";
+import { useCallback } from "react";
 
 export function useSignInWithProvider() {
   const auth = useAuth();
@@ -18,7 +19,7 @@ export function useSignInWithProvider() {
     FirebaseError
   >();
 
-  async function signInWithProvider(provider: AuthProvider) {
+  const signInWithProvider = useCallback(async (provider: AuthProvider) => {
     setLoading(true);
 
     try {
@@ -32,7 +33,7 @@ export function useSignInWithProvider() {
     } catch (error) {
       setError(error as FirebaseError);
     }
-  }
+  }, [auth, setData, setError, setLoading]);
 
   return [signInWithProvider, state] as [
     typeof signInWithProvider,

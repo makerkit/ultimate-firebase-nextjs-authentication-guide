@@ -22,8 +22,8 @@ const SignIn = () => {
     );
   };
 
-  const onSignIn = useCallback(async () => {
-    router.push("/dashboard");
+  const onSignIn = useCallback( () => {
+    return router.push("/dashboard");
   }, [router]);
 
   useEffect(() => {

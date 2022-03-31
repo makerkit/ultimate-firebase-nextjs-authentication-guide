@@ -1,4 +1,4 @@
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useEffect } from "react";
 import { useSignUpWithEmailAndPassword } from "../lib/hooks/useSignUpWithEmailAndPassword";
 
 function EmailPasswordSignUpForm(
@@ -7,8 +7,14 @@ function EmailPasswordSignUpForm(
   }>
 ) {
   const [signUp, state] = useSignUpWithEmailAndPassword();
-
   const loading = state.loading;
+  const error = state.error;
+
+  useEffect(() => {
+    if (state.success) {
+      props.onSignup();
+    }
+  }, [props, state.success]);
 
   const onSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -23,11 +29,9 @@ function EmailPasswordSignUpForm(
       const password = data.get(`password`) as string;
 
       // sign user up
-      await signUp(email, password);
-
-      props.onSignup();
+      return signUp(email, password);
     },
-    [loading, props, signUp]
+    [loading, signUp]
   );
 
   return (
@@ -48,6 +52,10 @@ function EmailPasswordSignUpForm(
           type="password"
           className="TextField"
         />
+
+        {
+          error ? <span className="text-red-500">{error.message}</span> : null
+        }
 
         <button disabled={loading} className="Button w-full">
           Sign Up
